@@ -19,23 +19,4 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{'name': 'Contact Form reCAPTCHA Reloaded',
- 'version': '1.0',
- 'category': 'Website',
- 'depends': ['website_form_recaptcha_reloaded', 'website_crm','auth_signup'],
- 'author': 'Tech Receptives, Cubex Solutions',
- 'license': 'AGPL-3',
- 'website': 'https://www.techreceptives.com',
- 'description': """
-Odoo Contact Form reCAPTCHA Reloaded
-=====================================
-This modules allows you to integrate Google reCAPTCHA v2.0 to your website contact form.
-You can configure your Google reCAPTCHA site and public keys
-in "Settings" -> "Website Settings"
-""",
- 'data': [
-     'views/website_crm.xml'
- ],
- 'installable': True,
- 'auto_install': False
-}
+import controllers

@@ -3,6 +3,7 @@
 #
 #    Tech-Receptives Solutions Pvt. Ltd.
 #    Copyright (C)2004-TODAY Tech Receptives(<https://www.techreceptives.com>)
+#    Copyright (C)2016-TODAY Cubex Solutions (<https://cubex.solutions>)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,4 +19,3 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import controllers

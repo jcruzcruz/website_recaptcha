@@ -19,23 +19,22 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{'name': 'Contact Form reCAPTCHA Reloaded',
- 'version': '1.0',
- 'category': 'Website',
- 'depends': ['website_form_recaptcha_reloaded', 'website_crm','auth_signup'],
- 'author': 'Tech Receptives, Cubex Solutions',
- 'license': 'AGPL-3',
- 'website': 'https://www.techreceptives.com',
- 'description': """
-Odoo Contact Form reCAPTCHA Reloaded
-=====================================
-This modules allows you to integrate Google reCAPTCHA v2.0 to your website contact form.
-You can configure your Google reCAPTCHA site and public keys
-in "Settings" -> "Website Settings"
-""",
- 'data': [
-     'views/website_crm.xml'
- ],
- 'installable': True,
- 'auto_install': False
-}
+from openerp.addons.web import http
+from openerp.addons.web.http import request
+from openerp.addons.website_form.controllers import main
+
+class WebsiteForm(main.WebsiteForm):
+
+    @http.route()
+    def website_form(self, model_name, **kwargs):
+        if 'g-recaptcha-response' in kwargs:
+            if request.website.is_captcha_valid(kwargs['g-recaptcha-response']):
+                # remove the value of g-recaptcha-response
+                # not to see it as a field of any model
+                del kwargs['g-recaptcha-response']
+                return super(WebsiteForm, self).website_form(model_name, **kwargs)
+            else:
+                return super(WebsiteForm, self).website_form(None, **kwargs)
+
+        # recaptcha is not there
+        return super(WebsiteForm, self).website_form(model_name, **kwargs)
