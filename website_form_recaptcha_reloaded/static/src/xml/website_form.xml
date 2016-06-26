@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+
+    <!-- Recaptcha is missing status -->
+    <t t-name="website_form.status_invalid_recaptcha">
+        <span id="o_website_form_result" class="text-danger ml8">
+            <i class="fa fa-close mr4"/>Please solve the captcha before submission.
+        </span>
+    </t>
+
+
+</templates>

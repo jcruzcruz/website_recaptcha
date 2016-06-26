@@ -41,6 +41,9 @@ in "Settings" -> "Website Settings"
  'data': [
      'views/website_form.xml'
  ],
+ 'qweb': [
+     'static/src/xml/website_form.xml'
+ ],
  'installable': True,
  'auto_install': False
 }
